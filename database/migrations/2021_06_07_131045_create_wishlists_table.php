@@ -19,7 +19,7 @@ class CreateWishlistsTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('customer');
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();
         });
     }

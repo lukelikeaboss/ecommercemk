@@ -18,7 +18,7 @@ class CreateCustomerAddressesTable extends Migration
             $table->string('address')->nullable();
             $table->string('pin')->nullable();
             $table->integer('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('customer');
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->timestamps();
         });
     }

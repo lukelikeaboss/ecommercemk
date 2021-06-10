@@ -18,7 +18,7 @@ class CreateProductImagesTable extends Migration
             $table->string('image_url');
             $table->string('alt_text');
             $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('category');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

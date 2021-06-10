@@ -24,7 +24,7 @@ class CreateBusinessesTable extends Migration
             $table->string('business_number');
             $table->string('status');
             $table->string('avatar_url');
-            $table->string('extrnal_url');
+            $table->string('external_url');
             $table->rememberToken();
             $table->timestamps();
         });

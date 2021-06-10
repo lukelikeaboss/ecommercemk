@@ -16,9 +16,9 @@ class CreateSellerCountiesTable extends Migration
         Schema::create('seller_counties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('business_id')->unsigned();
-            $table->foreign('business_id')->references()->on('businesses');
+            $table->foreign('business_id')->references('id')->on('businesses');
             $table->integer('county_id')->unsigned();
-            $table->foreign('county_id')->references()->on('counties');
+            $table->foreign('county_id')->references('id')->on('counties');
             $table->timestamps();
         });
     }

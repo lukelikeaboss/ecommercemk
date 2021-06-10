@@ -15,12 +15,11 @@ class CreateCreatePaymentsTable extends Migration
     {
         Schema::create('create_payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order_id')->unsigned();
             $table->integer('amount');
             $table->integer('mode')->default(1);
-            $table->integer('order_id')->unsigned();
             $table->string('reference_url')->nullable();
             $table->string('invoice_number')->nullable();
+            $table->integer('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });

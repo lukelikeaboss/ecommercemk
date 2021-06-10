@@ -18,7 +18,7 @@ class CreateCustomerpaymentsTable extends Migration
             $table->integer('type');//mpesa, paypal
             $table->string('details')->nullable();
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->integer('customer_id_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
             $table->timestamps();
         });
     }
