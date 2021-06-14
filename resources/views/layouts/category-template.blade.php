@@ -6,7 +6,7 @@
 
             <a href="#">welcome to the website glad you are here</a>
 
-                    <img class="card-img-top" "src="{{asset('pics/picha.svg}}" alt="lookyjere">
+                    <img class="card-img-top" "src="{{asset('pics/picha.svg')}}" alt="lookyjere">
 
         </div>
     </span>
