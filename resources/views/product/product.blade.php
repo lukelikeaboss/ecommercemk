@@ -1,88 +1,88 @@
-<div class="carousel-item">
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="thumb-wrapper">
-                <div class="img-box">
-                    <img src="/examples/images/products/play-station.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="thumb-content">
-                    <h4>Sony Play Station</h4>
-                    <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
-                    <div class="star-rating">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
+
+
+@extends('layouts.app')
+
+@section('content')
+    <div class="container-fluid">
+
+        @if (session('message'))
+            <div class="alert alert-success" role="alert">
+                {{ session('message') }}
             </div>
+
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+
+        @endif
+
+        <div class="row justify-content-center">
+            <h2 class="bg-warning">All Products</h2>
         </div>
-        <div class="col-sm-3">
-            <div class="thumb-wrapper">
-                <div class="img-box">
-                    <img src="/examples/images/products/macbook-pro.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="thumb-content">
-                    <h4>Macbook Pro</h4>
-                    <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
-                    <div class="star-rating">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-                        </ul>
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <section class="card border-0 shadow-sm">
+                    <section class="card-header">
+                        <div class="row">
+                            <h4 class="card-title my-auto ml-3">All product</h4>
+                            <a href="{{ route('create.product') }}" class="btn btn-danger ml-auto ">
+                                <i class="fa fa-plus " aria-hidden="true" ></i>Add product</a>
+                        </div>
+                    </section>
+                    <div class="card-body">
+                        <table id="datatable" class="table table-secondary table-bordered table-striped table-hover">
+                            <thead>
+                            <tr  class="bg-success">
+                                <td>ID</td>
+                                <td>Name</td>
+                                <td>Amount</td>
+                                <td>Quantity</td>
+                                <td>Business</td>
+                                <td>Created at@</td>
+                                <td>Actions</td>
+                            </tr>
+                            </thead>
+
+                            @foreach ($products as $product )
+                                <tr>
+                                    <td>{{ $product->id }}</td>
+                                    <td>{{$product->name }}</td>
+                                    <td>{{ $product->cost }}</td>
+                                    <td>{{ $product->quantity }}</td>
+                                    <td>{{ $product->business_id }}</td>
+                                    <td>{{ $product->created_at }}</td>
+                                    <td>
+                                        <a href="{{route('details.product',$product->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
+{{--                                        <a href="{{ route('edit.product', $product->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>--}}
+{{--                                        <a href="{{ route('delete.product', $product->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>--}}
+                                        </a>
+                                    </td>
+
+                                </tr>
+                                @endforeach
+                                </tbody>
+                        </table>
+
                     </div>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
+                </section>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumb-wrapper">
-                <div class="img-box">
-                    <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="thumb-content">
-                    <h4>Bose Speaker</h4>
-                    <p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
-                    <div class="star-rating">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumb-wrapper">
-                <div class="img-box">
-                    <img src="/examples/images/products/galaxy.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="thumb-content">
-                    <h4>Samsung Galaxy S8</h4>
-                    <p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
-                    <div class="star-rating">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
+
         </div>
     </div>
-</div>
+
+
+
+
+@endsection
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        } );
+    </script>
+@endsection

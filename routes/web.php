@@ -26,8 +26,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/products',[App\Http\Controllers\ProductController::class,'index'])->name('product');
-    Route::get('/create/product', [\App\Http\Controllers\ProductController::class,'create'])->name('create_product');
-    Route::post('/store/product', [\App\Http\Controllers\ProductController::class,'store'])->name('store-product');
+    Route::get('/create/product', [\App\Http\Controllers\ProductController::class,'create'])->name('create.product');
+    Route::post('/store/product', [\App\Http\Controllers\ProductController::class,'store'])->name('store.product');
+    Route::get('/details/product/{id}', [\App\Http\Controllers\ProductController::class,'show'])->name('details.product');
     Route::get('create/category', [App\Http\Controllers\CategoryController::class, 'create'] )->name('create.category');
     Route::get('categories', [App\Http\Controllers\CategoryController::class, 'index'] )->name('category');
     Route::get('edit/category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'] )->name('edit.category');

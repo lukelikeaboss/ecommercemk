@@ -46,28 +46,31 @@ class ProductController extends Controller
             'cost'=>'required',
             'quantity'=>'required',
             'short_description'=>'required',
-            'image_url'=>'required|mime:jpg,png,svg,jpeg',
+//            'image_url'=>'required|mime:jpg,png,svg,jpeg',
             'business_id'=>'required'
         ];
         //
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()){
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-        else{
-               //storeimagehere
-                Product::create([
-                    'name'=>$request->name,
-                    'short_description'=>$request->short_description,
-                    'cost'=>$request->cost,
-                    'image_url'=>$request->image_url,
-                    'business_id'=>$request->business_id,
-                    'quantity'=>$request->quantity,
-                ]);
-                return redirect()->route('products');
-        }
+//        $validator = Validator::make($request->all(), $rules);
+//        if ($validator->fails()){
+//            return redirect()->back()
+//                ->withErrors($validator)
+//                ->withInput();
+//        }
+//        else{
+//               //storeimagehere
+//
+//        }
+
+        Product::create([
+            'name'=>$request->name,
+            'short_description'=>$request->short_description,
+            'cost'=>$request->cost,
+            'image_url'=>$request->name,
+            'business_id'=> 1,
+            'category_id' => 1,
+            'quantity'=>$request->quantity,
+        ]);
+        return redirect()->route('product');
     }
 
     /**
