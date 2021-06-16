@@ -1,61 +1,99 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-            <p>Product details</p>
+    <div class="row mt-4">
+        <div class="col-lg-8 col-md-6 col-sm-12 my-auto">
+            <h4 class="text-left align-content-center">{{$product->name}} details</h4>
+        </div>
 
-            <button type="edit" class="btn  btn-success mt-2 w-50"><i class="fa fa-edit">Edit</button>
-            <button type="Delete" class="btn  btn-success mt-2 w-50"><i class="fa fa-trash"></i>Delete</button>
-
+        <div class="col-lg-4 col-md-6 col-sm-12 text-right">
+            <a href="#"  class="btn  btn-success  mx-2 "><i class="fa fa-edit"> </i>Edit</a>
+            <a href="#"  class="btn  btn-success mx-2"><i class="fa fa-trash"></i>Delete</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+
+    <hr>
+
+    <div class="row my-5">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="img-box img-fluid">
                 <img src="{{ asset('pics/wallpaperbetter(1).jpg')}}" class="img-fluid" alt="">
             </div>
-            <div class="col">
-                <div class="table">
-                    <div class="card-header">
-                        <p>seller info</p>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>
-                                Name:<a href="#">Name</a>
-                            </li>
-                        </ul><ul>
-                            <li>
-                                Number:
-                            </li>
-                        </ul>
-                        <button type="button" class="btn-success btn">Chat</button>
-                        <button type="button" class="btn-success btn">Contact</button>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="col-md-6">
-                <p>Description:</p>
-                <br>
-                <p>here are some other lines that you should read</p>
-            </div>
-        </div>
-        <div class="col">
-            <div class="col-md-6">
-                <p>More details:</p>
-                <br>
-                <p>Cost:</p>
-                <p>Quantity:</p>
-                <p>Rating:</p>
 
+        <div class="col-lg-6 col-md-6 col-sm-12 p-5  rounded shadow">
+
+            <h4>Seller Info</h4>
+            <hr>
+
+            <p><strong>Name:</strong> JK Live</p>
+            <p><strong>Number:</strong> 071234567</p>
+
+            <div class="row ">
+                <a href="#"  class="btn  btn-outline-success  mx-2 "><i class="fa fa-comment mr-2"> </i>Chat</a>
+                <a href="#"  class="btn  btn-success mx-2"><i class="fa fa-phone mr-2"></i>Contact</a>
             </div>
+
         </div>
     </div>
+{{--    <div class="row">--}}
+{{--        <span class="border border-info">--}}
+{{--        <div class="col-md-4 border-primary">--}}
+{{--            <div class="img-box img-fluid">--}}
+{{--                <img src="{{ asset('pics/wallpaperbetter(1).jpg')}}" class="img-fluid" alt="">--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-6 col-md-6 col-sm-12 p-5  rounded shadow">--}}
+{{--                <div class="table border-primary">--}}
+{{--                    <div class="table">--}}
+{{--                        <th>seller info</th>--}}
+
+{{--                        <tr>--}}
+{{--                            <td>--}}
+{{--                                Name:<a href="#">Name</a>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                        <br>--}}
+{{--                        <tr>--}}
+{{--                            <td>--}}
+{{--                                Number:--}}
+{{--                                <br>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                        <a href="#"  class="btn-success btn">Chat</a>--}}
+{{--                        <a href="#" class="btn-success btn">Contact</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        </span>--}}
+{{--    </div>--}}
+    <div class="row mb-5">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 p-5  rounded shadow  shadow-success">
+            <h4>  Description:</h4>
+            <hr>
+            <p>{{$product->short_description}}</p>
+
+            <hr>
+            <p>Category: {{$product->category_id}}</p>
+
+
+        </div>
+        <hr>
+        <div class="col-lg-6 col-md-6 col-sm-12 p-5  rounded shadow">
+            <h4>   More details: </h4>
+            <hr>
+            <p><strong>Cost:</strong> Kshs {{$product->cost}}</p>
+
+            <p><strong>Quantity:</strong> {{$product->quantity}} items</p>
+
+            <p><strong>Rating:</strong> 4 star</p>
+        </div>
+    </div>
+
+
+    </div>
+
 </div>
 
 

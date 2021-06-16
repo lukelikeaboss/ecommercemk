@@ -46,7 +46,7 @@ class ProductController extends Controller
             'cost'=>'required',
             'quantity'=>'required',
             'short_description'=>'required',
-//            'image_url'=>'required|mime:jpg,png,svg,jpeg',
+            'image_url'=>'required|mime:jpg,png,svg,jpeg',
             'business_id'=>'required'
         ];
         //
@@ -61,6 +61,19 @@ class ProductController extends Controller
 //
 //        }
 
+
+
+        if ($request->hasFile('image_url')){
+            $filename = ImageController::addFile($request->file('image_url'));
+
+            if ($filename == "Failed"){
+                return redirect()->back()->withInput();
+            }
+
+        }
+        else{
+            $filename = null;
+        }
         Product::create([
             'name'=>$request->name,
             'short_description'=>$request->short_description,
@@ -68,6 +81,7 @@ class ProductController extends Controller
             'image_url'=>$request->name,
             'business_id'=> 1,
             'category_id' => 1,
+            'image_url' => $filename,
             'quantity'=>$request->quantity,
         ]);
         return redirect()->route('product');
