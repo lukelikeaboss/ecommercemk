@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Business;
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class BusinessController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,20 +18,20 @@ class BusinessController extends Controller
     public function index()
     {
         //
-        $business = Business::all();
+        $customer = Customer::all();
 
-        return view('business.business', compact('business'));
+        return view('customer.customer', compact('customer'));
     }
 
     /**
-     * Sho w the form for creating a new resource.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         //
-        return view('business.create-business');
+        return view('customer.create-customer');
     }
 
     /**
@@ -46,10 +45,10 @@ class BusinessController extends Controller
         //
         $rules = [
             'name'=>'required',
-            'product'=>'required',
-            'quantity'=>'required',
+            'phone_number'=>'required',
+            'location'=>'required',
             'image_url'=>'required|mime:jpg,png,svg,jpeg',
-            'business_id'=>'required'
+            'customer_id'=>'required'
         ];
         if ($request->hasFile('image_url')){
             $filename = ImageController::addFile($request->file('image_url'));
@@ -62,16 +61,16 @@ class BusinessController extends Controller
         else{
             $filename = null;
         }
-        Business::create([
-            'name'=>$request->name,
-            'product'=>$request->product,
-            'image_url'=>$request->name,
-            'business_id'=> 1,
-            'category_id' => 1,
+        Customer::create([
+            'name'=>$request->name.$request->surname,
+            'email'=>$request->email,
+            'phone_number'=>$request->phone_number,
+            'location'=>$request->location,
             'image_url' => $filename,
-            'quantity'=>$request->quantity,
+            'customer_id'=> 2,
+            'payment_method'=>$request->payment_method,
         ]);
-        return redirect()->route('business');
+        return redirect()->route('customer');
     }
 
     /**
@@ -83,8 +82,8 @@ class BusinessController extends Controller
     public function show($id)
     {
         //
-        $business = Business::findOrFail($id);
-        return view('business.business-details', compact('business'));
+        $customer = Customer::findOrFail($id);
+        return view('customer.customer-details', compact('customer'));
     }
 
     /**
@@ -96,9 +95,9 @@ class BusinessController extends Controller
     public function edit($id)
     {
         //
-        $business = Business:: findOrFail();
-        $business = Business::findOrFail($id);
-        return view('business.create-business', compact('business') );
+        $customer = Customer::all();
+        $customer = Customer::findOrFail($id);
+        return view('customer.create-customer', compact('customer') );
     }
 
     /**
@@ -110,14 +109,14 @@ class BusinessController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $business = Business::findOrFail($id);
+        //
+        $customer = Customer::findOrFail($id);
         $rules = [
             'name'=>'required',
-            'product'=>'required',
-            'quantity'=>'required',
+            'phone_number'=>'required',
+            'location'=>'required',
             'image_url'=>'required|mime:jpg,png,svg,jpeg',
-            'business_id'=>'required'
+            'customer_id'=>'required'
         ];
         //
         $validator = Validator::make($request->all(), $rules);
@@ -126,19 +125,18 @@ class BusinessController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        else{
+        else {
             //storeimagehere
 
-            $business->update([
-                'name'=>$request->name,
-                'long_description'=>$request->long_description?? "emptiness",
-                'cost'=>$request->cost,
-                'product'=>$request->product,
-                'category_id'=>$request->category_id,
-                'business_id'=>$request->business_id,
-                'quantity'=>$request->quantity,
+            $customer->update([
+                'name' => $request->name,
+                'long_description' => $request->long_description ?? "emptiness",
+                'payment_method' => $request->cost,
+                'phone_number' => $request->phone_number,
+                'customer_id' => $request->category_id,
+
             ]);
-            return redirect()->route('business');
+            return redirect()->route('customer');
         }
 
     }
@@ -149,17 +147,19 @@ class BusinessController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+        public function destroy($id)
     {
         //
-        $business = Business::findOrFail($request->id);
-        if ($business->image_url!=null){
+        $customer = Customer::findOrFail($request->id);
+        if ($customer->image_url!=null){
             Storage::delete('public/images/'.$business->image_url);
         }
 
 
 
-        $business->delete();
+        $customer->delete();
         return response()->json();
     }
+
 }

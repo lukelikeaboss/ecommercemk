@@ -20,7 +20,7 @@
         @endif
 
         <div class="row justify-content-center">
-            <h2 class="bg-warning">All Businesses</h2>
+            <h2 class="bg-warning">Customers</h2>
         </div>
 
 
@@ -29,9 +29,9 @@
                 <section class="card border-0 shadow-sm">
                     <section class="card-header">
                         <div class="row">
-                            <h4 class="card-title my-auto ml-3">All Businesses</h4>
-                            <a href="#" class="btn btn-danger ml-auto ">
-                                <i class="fa fa-plus " aria-hidden="true" ></i>Add Business</a>
+                            <h4 class="card-title my-auto ml-3">All customers</h4>
+                            <a href="{{ route('create.product') }}" class="btn btn-danger ml-auto ">
+                                <i class="fa fa-user fa-2x " aria-hidden="true" ></i>Add a Customer</a>
                         </div>
                     </section>
                     <div class="card-body">
@@ -40,24 +40,24 @@
                             <tr  class="bg-success">
                                 <td>ID</td>
                                 <td>Name</td>
-                                <td>Amount</td>
-                                <td>Quantity</td>
-                                <td>Business</td>
-                                <td>Created at@</td>
-                                <td>Actions</td>
+                                <td>Location</td>
+                                <td>Phone Number</td>
+                                <td>Last purchase</td>
+                                <td>Delivery Status</td>
+                                <td>Profile</td>
                             </tr>
                             </thead>
 
-                            @foreach ($business as $Business )
+                            @foreach ($customer as $customer )
                                 <tr>
-                                    <td>{{ $Business ->id }}</td>
-                                    <td>{{$Business ->name }}</td>
-                                    <td>{{ $Business ->cost }}</td>
-                                    <td>{{ $Business ->quantity }}</td>
-                                    <td>{{ $Business ->business_id }}</td>
-                                    <td>{{ $Business ->created_at }}</td>
+                                    <td>{{ $customer->id }}</td>
+                                    <td>{{$customer->name }}</td>
+                                    <td>{{ $customer->location }}</td>
+                                    <td>{{ $customer->phone_number }}</td>
+                                    <td>{{ customer->customer_id }}</td>
+                                    <td>{{ $customer->created_at }}</td>
                                     <td>
-                                        <a href="{{route('details.business',$Business ->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
+                                        <a href="{{route('details.product',$product->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
                                         {{--                                        <a href="{{ route('edit.product', $product->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>--}}
                                         {{--                                        <a href="{{ route('delete.product', $product->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>--}}
                                         </a>

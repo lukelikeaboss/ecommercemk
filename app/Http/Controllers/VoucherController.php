@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Business;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Voucher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class BusinessController extends Controller
+class VoucherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +20,9 @@ class BusinessController extends Controller
     public function index()
     {
         //
-        $business = Business::all();
+        $voucher = Voucher::all();
 
-        return view('business.business', compact('business'));
+        return view('Voucher.Voucher', compact('voucher'));
     }
 
     /**
@@ -32,7 +33,7 @@ class BusinessController extends Controller
     public function create()
     {
         //
-        return view('business.create-business');
+        return view('Voucher.create-Voucher');
     }
 
     /**
@@ -62,7 +63,7 @@ class BusinessController extends Controller
         else{
             $filename = null;
         }
-        Business::create([
+        Voucher::create([
             'name'=>$request->name,
             'product'=>$request->product,
             'image_url'=>$request->name,
@@ -71,7 +72,7 @@ class BusinessController extends Controller
             'image_url' => $filename,
             'quantity'=>$request->quantity,
         ]);
-        return redirect()->route('business');
+        return redirect()->route('voucher');
     }
 
     /**
@@ -83,8 +84,8 @@ class BusinessController extends Controller
     public function show($id)
     {
         //
-        $business = Business::findOrFail($id);
-        return view('business.business-details', compact('business'));
+        $voucher = Voucher::findOrFail($id);
+        return view('voucher.voucher-details', compact('voucher'));
     }
 
     /**
@@ -96,9 +97,9 @@ class BusinessController extends Controller
     public function edit($id)
     {
         //
-        $business = Business:: findOrFail();
-        $business = Business::findOrFail($id);
-        return view('business.create-business', compact('business') );
+        $voucher = Voucher::all();
+        $voucher = Voucher::findOrFail($id);
+        return view('voucher.create-voucher', compact('voucher') );
     }
 
     /**
@@ -111,13 +112,13 @@ class BusinessController extends Controller
     public function update(Request $request, $id)
     {
 
-        $business = Business::findOrFail($id);
+        $voucher = Voucher::findOrFail($id);
         $rules = [
             'name'=>'required',
             'product'=>'required',
             'quantity'=>'required',
             'image_url'=>'required|mime:jpg,png,svg,jpeg',
-            'business_id'=>'required'
+            'Voucher_id'=>'required'
         ];
         //
         $validator = Validator::make($request->all(), $rules);
@@ -129,7 +130,7 @@ class BusinessController extends Controller
         else{
             //storeimagehere
 
-            $business->update([
+            $voucher->update([
                 'name'=>$request->name,
                 'long_description'=>$request->long_description?? "emptiness",
                 'cost'=>$request->cost,
@@ -138,7 +139,7 @@ class BusinessController extends Controller
                 'business_id'=>$request->business_id,
                 'quantity'=>$request->quantity,
             ]);
-            return redirect()->route('business');
+            return redirect()->route('voucher');
         }
 
     }
@@ -152,14 +153,14 @@ class BusinessController extends Controller
     public function destroy($id)
     {
         //
-        $business = Business::findOrFail($request->id);
-        if ($business->image_url!=null){
-            Storage::delete('public/images/'.$business->image_url);
-        }
+        $voucher = Voucher::findOrFail($request->id);
+//        if ($voucher->image_url!=null){
+//            Storage::delete('public/images/'.$voucher->image_url);
+//        }
 
 
 
-        $business->delete();
+        $voucher->delete();
         return response()->json();
     }
 }

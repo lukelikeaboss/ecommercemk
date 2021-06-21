@@ -2,9 +2,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row mt-4">
-            <div class="col-lg-8 col-md-6 col-sm-12 my-auto">
-               <img src="{{ asset('12.jpg')}}" class="img-thumbnail" alt="avatar">
-                <p><strong>Seller:{{$business->name}}</strong></p>
+            <div class="col-lg-6 col-md-6 col-sm-12 my-auto">
+               <img src="{{ asset('pics/12.jpg')}}" class="img-thumbnail card-img rounded mb-3 img-box rounded-circle"  alt="avatar">
+                <h3><strong>Seller:{{$business->name}}</strong></h3>
                 <a href="#" class="btn btn-success rounded"><i class="fa fa-phone"></i> Call</a>
                 <a href="#"  class="btn  btn-success  mx-2 "><i class="fa fa-edit"> </i>Edit</a>
             </div>
@@ -61,7 +61,7 @@
                 <p><a href="#">@info.KwaZuluNatal.co.ke</a></p>
 
                 <hr>
-                <p>Find us <a href="#">Here</a><i class="fa fa-fa-map-marker"></i> </p>
+                <p>   <i class="fa fa-map-marker mr-2"></i>  Find us <a href="#">Here</a> </p>
 
 
             </div>
