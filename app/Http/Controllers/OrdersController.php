@@ -18,8 +18,8 @@ class OrdersController extends Controller
     public function index()
     {
         //
-        $orders=Orders::all();
-        return view(orders.orders, compact('orders'));
+        $orders=Order::all();
+        return view('orders.orders', compact('orders'));
     }
 
     /**
@@ -30,7 +30,7 @@ class OrdersController extends Controller
     public function create()
     {
         //
-        return  view(orders.create-order);
+        return  view('orders.create-order');
     }
 
     /**
@@ -79,8 +79,8 @@ class OrdersController extends Controller
     public function show($id)
     {
         //
-        $orders = Orders::findOrFail($id);
-        return view('orders.orders-details', compact('orders'));
+        $orders = Order::findOrFail($id);
+        return view('Orders.order-details', compact('orders'));
     }
 
     /**

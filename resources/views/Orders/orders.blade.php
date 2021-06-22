@@ -19,33 +19,14 @@
                 </thead>
                 <tbody>
                 <tr scope="row">
+                    <td>1</td>
                     <td>Martin</td>
                     <td>Martin@gmail.com</td>
                     <td>072334479</td>
                     <td>Thika Road</td>
                     <td>25Minutes ETA</td>
                 </tr>
-                <tr scope="row">
-                    <td>Martin</td>
-                    <td>Martin@gmail.com</td>
-                    <td>072334479</td>
-                    <td>Thika Road</td>
-                    <td>25Minutes ETA</td>
-                </tr>
-                <tr scope="row">
-                    <td>Martin</td>
-                    <td>Martin@gmail.com</td>
-                    <td>072334479</td>
-                    <td>Thika Road</td>
-                    <td>25Minutes ETA</td>
-                </tr>
-                <tr scope="row">
-                    <td>Martin</td>
-                    <td>Martin@gmail.com</td>
-                    <td>072334479</td>
-                    <td>Thika Road</td>
-                    <td>25Minutes ETA</td>
-                </tr>
+
                 </tbody>
             </table>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CreatePayment;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -14,6 +15,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
+        $payment = CreatePayment::all();
+        return view('payments.payments', compact('payment'));
     }
 
     /**
@@ -24,6 +27,7 @@ class PaymentController extends Controller
     public function create()
     {
         //
+        return view('payments.create-payment');
     }
 
     /**
@@ -35,6 +39,14 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+//        $rules =[
+//            'name'=>'required',
+//            'cost'=>'required',
+//            'product'=>'required',
+//            'business_id'=> 'required',
+//        ];
+//        if ($request->whenHas())
+
     }
 
     /**
@@ -46,6 +58,8 @@ class PaymentController extends Controller
     public function show($id)
     {
         //
+        $payment = CreatePayment::findOrFail($id);
+        return view('payments.payment-details', compact('payment'));
     }
 
     /**

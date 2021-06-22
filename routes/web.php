@@ -33,6 +33,18 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/create/business', [\App\Http\Controllers\BusinessController::class,'create'])->name('create.business');
     Route::post('/store/business', [\App\Http\Controllers\BusinessController::class,'store'])->name('store.business');
     Route::get('/details/business/{id}', [\App\Http\Controllers\BusinessController::class,'show'])->name('details.business');
+    Route::get('/payment',[App\Http\Controllers\PaymentController::class,'index'])->name('payment');
+    Route::get('/create/payment', [\App\Http\Controllers\PaymentController::class,'create'])->name('create.payment');
+    Route::post('/store/payment', [\App\Http\Controllers\PaymentController::class,'store'])->name('store.payment');
+    Route::get('/details/payment/{id}', [\App\Http\Controllers\PaymentController::class,'show'])->name('details.payment');
+    Route::get('/offer',[App\Http\Controllers\OfferController::class,'index'])->name('business');
+    Route::get('/create/offer', [\App\Http\Controllers\OfferController::class,'create'])->name('create.offer');
+    Route::post('/store/offer', [\App\Http\Controllers\OfferController::class,'store'])->name('store.offer');
+    Route::get('/details/offer/{id}', [\App\Http\Controllers\OfferController::class,'show'])->name('details.offer');
+    Route::get('/orders',[App\Http\Controllers\OrdersController::class,'index'])->name('orders');
+    Route::get('/create/orders', [\App\Http\Controllers\OrdersController::class,'create'])->name('create.orders');
+    Route::post('/store/orders', [\App\Http\Controllers\OrdersController::class,'store'])->name('store.orders');
+    Route::get('/details/orders/{id}', [\App\Http\Controllers\OrdersController::class,'show'])->name('details.orders');
     Route::get('/customer',[App\Http\Controllers\CustomerController::class,'index'])->name('customer');
     Route::get('/create/customer', [\App\Http\Controllers\CustomerController::class,'create'])->name('create.customer');
     Route::post('/store/customer', [\App\Http\Controllers\CustomerController::class,'store'])->name('store.customer');
