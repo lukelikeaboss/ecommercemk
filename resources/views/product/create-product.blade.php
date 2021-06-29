@@ -32,15 +32,15 @@
                         </div>
                         <div class="form-group">
                             <label> Quantity:</label>
-                            <input type="number" name="quantity" class="form-control" placeholder="Your Name">
+                            <input type="number" name="quantity" class="form-control" placeholder="How much stock do you have?">
                         </div>
                         <div class="form-group">
                             <label> Cost:</label>
-                            <input type="number" name="cost" class="form-control" placeholder="Your Name">
+                            <input type="number" name="cost" class="form-control" placeholder="How much does it cost?">
                         </div>
                         <div>
                             <label>Short Description:</label>
-                            <textarea  name="short-description" class="form-control" placeholder="Phone Number:">
+                            <textarea  name="short_description" class="form-control" placeholder="Something short about it">
                             </textarea>
                         </div>
                         <div>
@@ -55,15 +55,28 @@
 
                         <div class="form-group">
                             <label for="inputstate">Category</label>
-                            <select id="inputstate" name="platform" class="form-control">
+                            <select id="inputstate" name="category_id" class="form-control">
                                 <option selected>Choose a category:</option>
-                                <option>Category A</option>
-                                <option> Category B</option>
-                                <option> Category C</option>
-                                <option> Category D</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+
                             </select>
 
                         </div>
+
+                        <div class="form-group">
+                            <label for="inputstate">Business</label>
+                            <select id="inputstate" name="business_id" class="form-control">
+                                <option selected>Choose a business:</option>
+                                @foreach($businesses as $business)
+                                    <option value="{{$business->id}}">{{$business->name}}</option>
+                                @endforeach
+
+                            </select>
+
+                        </div>
+
 
                         <button type="submit" class="btn btn-success w-50">Submit</button>
 

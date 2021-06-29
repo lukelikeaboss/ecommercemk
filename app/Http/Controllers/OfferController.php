@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Business;
+use App\Models\Offer;
 use App\Models\Offers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,7 @@ class OfferController extends Controller
     public function index()
     {
         //
-        $offers = Offers::all();
+        $offers = Offer::all();
 
         return view('offers.offers', compact('offers'));
     }

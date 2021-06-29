@@ -1,5 +1,6 @@
 
 
+
 @extends('layouts.app')
 
 @section('content')
@@ -20,7 +21,7 @@
         @endif
 
         <div class="row justify-content-center">
-            <h2 class="bg-warning">Customers</h2>
+            <h2 class="bg-warning">Vouchers</h2>
         </div>
 
 
@@ -29,35 +30,35 @@
                 <section class="card border-0 shadow-sm">
                     <section class="card-header">
                         <div class="row">
-                            <h4 class="card-title my-auto ml-3">All customers</h4>
+                            <h4 class="card-title my-auto ml-3">All vouchers</h4>
                             <a href="{{ route('create.product') }}" class="btn btn-danger ml-auto ">
-                                <i class="fa fa-user fa-2x " aria-hidden="true" ></i>Add a Customer</a>
+                                <i class="fa fa-user fa-2x " aria-hidden="true" ></i>Add a Voucher</a>
                         </div>
                     </section>
                     <div class="card-body">
                         <table id="datatable" class="table table-secondary table-bordered table-striped table-hover">
                             <thead>
                             <tr  class="bg-success">
-                                <td>ID</td>
-                                <td>Name</td>
-                                <td>Location</td>
+                                <td>Id</td>
+                                <td>To</td>
+                                <td>Email Address</td>
                                 <td>Phone Number</td>
-                                <td>Last purchase</td>
-                                <td>Delivery Status</td>
-                                <td>Profile</td>
+                                <td>Voucher Amount</td>
+                                <td>Good until</td>
+                                <td>Description</td>
                             </tr>
                             </thead>
 
-                            @foreach ($customer as $customer )
+                            @foreach ($voucher as $voucher )
                                 <tr>
-                                    <td>{{ $customer->id }}</td>
-                                    <td>{{$customer->name }}</td>
-                                    <td>{{ $customer->location }}</td>
-                                    <td>{{ $customer->phone_number }}</td>
-                                    <td>{{ $customer->customer_id }}</td>
-                                    <td>{{ $customer->created_at }}</td>
+                                    <td>{{ $voucher->id }}</td>
+                                    <td>{{$voucher->name }}</td>
+                                    <td>{{ $voucher->location }}</td>
+                                    <td>{{ $voucher->phone_number }}</td>
+                                    <td>{{ $voucher->customer_id }}</td>
+                                    <td>{{ $voucher->created_at }}</td>
                                     <td>
-                                        <a href="{{route('details.customer',$customer->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
+                                        <a href="{{route('details.product',$voucher->id)}}" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
                                         {{--                                        <a href="{{ route('edit.product', $product->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>--}}
                                         {{--                                        <a href="{{ route('delete.product', $product->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>--}}
                                         </a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Business;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class ProductController extends Controller
     {
         //
         $categories = Category::all();
-        return view('product.create-product', compact('categories') );
+        $businesses = Business::all();
+        return view('product.create-product', compact('categories','businesses') );
     }
 
     /**
@@ -46,8 +48,9 @@ class ProductController extends Controller
             'cost'=>'required',
             'quantity'=>'required',
             'short_description'=>'required',
-            'image_url'=>'required|mime:jpg,png,svg,jpeg',
-            'business_id'=>'required'
+            'image'=>'required|mime:jpg,png,svg,jpeg',
+            'business_id'=>'required',
+            'category_id'=>'required',
         ];
         //
 //        $validator = Validator::make($request->all(), $rules);
@@ -61,10 +64,20 @@ class ProductController extends Controller
 //
 //        }
 
+        $request->validate([
+            'name'=>'required',
+            'cost'=>'required',
+            'quantity'=>'required',
+            'short_description'=>'required',
+            'image'=>'required|mimes:jpg,png,svg,jpeg',
+            'business_id'=>'required',
+            'category_id'=>'required',
+            ]);
 
 
-        if ($request->hasFile('image_url')){
-            $filename = ImageController::addFile($request->file('image_url'));
+
+        if ($request->hasFile('image')){
+            $filename = ImageController::addFile($request->file('image'));
 
             if ($filename == "Failed"){
                 return redirect()->back()->withInput();
@@ -78,9 +91,8 @@ class ProductController extends Controller
             'name'=>$request->name,
             'short_description'=>$request->short_description,
             'cost'=>$request->cost,
-            'image_url'=>$request->name,
-            'business_id'=> 1,
-            'category_id' => 1,
+            'business_id'=> $request->business_id,
+            'category_id' => $request->category_id,
             'image_url' => $filename,
             'quantity'=>$request->quantity,
         ]);
@@ -130,7 +142,7 @@ class ProductController extends Controller
             'cost'=>'required',
             'quantity'=>'required',
             'short_description'=>'required',
-            'image_url'=>'required|mime:jpg,png,svg,jpeg',
+            'image'=>'required|mime:jpg,png,svg,jpeg',
             'business_id'=>'required'
         ];
         //

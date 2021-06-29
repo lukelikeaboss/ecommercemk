@@ -17,7 +17,7 @@
     <div class="row my-5">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="img-box img-fluid">
-                <img src="{{ asset('pics/wallpaperbetter(1).jpg')}}" class="img-fluid" alt="">
+                <img src="{{ asset('storage/images/'.$product->image_url)}}" class="img-fluid" alt="Image Here">
             </div>
         </div>
 

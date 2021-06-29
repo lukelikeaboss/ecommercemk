@@ -12,8 +12,8 @@
         <div class="col-lg-3 col-sm-12 col-md-6">
             <div class="card">
                 <div class="card-body text-center">
-                    <i class="fa fa-rss fa-2x text-danger mb-3" aria-hidden="true" ></i>
-                    <h5>Total Posts</h5>
+                    <i class="fa fa-shopping-bag fa-2x text-info mb-3" aria-hidden="true" ></i>
+                    <h5>Total Businesses</h5>
                     <h6></h6>
                 </div>
             </div>
@@ -21,9 +21,9 @@
         <div class="col-lg-3 col-sm-12 col-md-6">
             <div class="card">
                 <div class="card-body text-center">
-                    <i class="fa fa-star  fa-2x mb-3 text-primary"></i>
+                    <i class="fa fa-list-alt      fa-2x mb-3 text-primary"></i>
 
-                    <h5>Total Projects</h5>
+                    <h5>All products</h5>
                     <h6></h6>
                 </div>
             </div>
@@ -31,9 +31,9 @@
         <div class="col-lg-3 col-sm-12 col-md-6">
             <div class="card">
                 <div class="card-body text-center">
-                    <i class="fa fa-briefcase fa-2x mb-3 text-primary"></i>
+                    <i class="fa fa-shopping-cart fa-2x mb-3 text-primary"></i>
 
-                    <h5>Total Projects</h5>
+                    <h5>All orders</h5>
                     <h6></h6>
                 </div>
             </div>
@@ -41,9 +41,9 @@
         <div class="col-lg-3 col-sm-12 col-md-6">
             <div class="card">
                 <div class="card-body text-center">
-                    <i class="fa fa-archive fa-2x mb-3 text-primary"></i>
+                    <i class="fas fa-coins fa-2x mb-3 text-primary"></i>
 
-                    <h5>Total Projects</h5>
+                    <h5>Total Payments</h5>
                     <h6></h6>
                 </div>
             </div>

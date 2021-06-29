@@ -21,7 +21,8 @@ class ImageController extends Controller
         $check =in_array($extension,self::getImageExtension());
         if ($check) {
             $filename = $file->storeAs('public/images', $fname);
-            return $filename;
+
+            return $fname;
         }
         else{
             return "Failed";
