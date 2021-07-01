@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\CreatePayment;
+use App\Models\Customerpayment;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -47,6 +49,17 @@ class PaymentController extends Controller
 //        ];
 //        if ($request->whenHas())
 
+
+
+    Customerpayment::create(['name' => $request->name,
+    'amount' => $request->amount->required,
+    'location' => $request->location,
+    'phone_number' => $request->phone_number,
+    'code' => $request->code,
+     'timestamp' => $request->timestamp,
+]);
+
+return redirect()->route('category'));
     }
 
     /**

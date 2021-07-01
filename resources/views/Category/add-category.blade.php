@@ -29,6 +29,8 @@
                             <div class="form-group">
                                 <label> Name:</label>
                                 <input type="text" name="name" class="form-control" placeholder="Your Name">
+                                <label> Description:</label>
+                                <input type="textarea" name="description" class="form-control" placeholder="Description">
                             </div>
 
                             <button type="submit" class="btn btn-success w-50">Submit</button>

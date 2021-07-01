@@ -57,6 +57,7 @@ class CategoryController extends Controller
         }
         else {
             Category::create(['name' => $request->name,
+            'description' => $request->description,
             ]);
             return redirect()->route('category');
         }
