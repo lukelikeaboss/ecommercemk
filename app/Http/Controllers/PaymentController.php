@@ -59,7 +59,7 @@ class PaymentController extends Controller
      'timestamp' => $request->timestamp,
 ]);
 
-return redirect()->route('category'));
+return redirect()->route('category');
     }
 
     /**

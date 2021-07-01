@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Business;
+use App\Models\Customerpayment;
+use App\Models\Order;
+use App\Models\Product;
+use Carbon\Carbon;
+use Faker\Provider\ar_SA\Payment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $businesses = Business::count();
+        $products = Product::count();
+        $orders = Order::count();
+        $payments = Customerpayment::count();
+
+        $date = Carbon::today()->subDays(7);
+        $recentOrders =Order::where('created_at', '>=', $date)->get();
+        $recentPayment =Customerpayment::where('created_at', '>=', $date)->get();
+        $recentProducts =Product::where('created_at', '>=', $date)->get();
+        return view('home', compact('businesses', 'products', 'orders', 'payments' ));
     }
 }

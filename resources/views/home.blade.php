@@ -14,7 +14,7 @@
                 <div class="card-body text-center">
                     <i class="fa fa-shopping-bag fa-2x text-info mb-3" aria-hidden="true" ></i>
                     <h5>Total Businesses</h5>
-                    <h6></h6>
+                    <h6>{{$businesses}}</h6>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                     <i class="fa fa-list-alt      fa-2x mb-3 text-primary"></i>
 
                     <h5>All products</h5>
-                    <h6></h6>
+                    <h6>{{$products}}</h6>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <i class="fa fa-shopping-cart fa-2x mb-3 text-primary"></i>
 
                     <h5>All orders</h5>
-                    <h6></h6>
+                    <h6>{{$orders}}</h6>
                 </div>
             </div>
         </div>
@@ -44,6 +44,7 @@
                     <i class="fas fa-coins fa-2x mb-3 text-primary"></i>
 
                     <h5>Total Payments</h5>
+                    <h5>{{$payments}}</h5>
                     <h6></h6>
                 </div>
             </div>

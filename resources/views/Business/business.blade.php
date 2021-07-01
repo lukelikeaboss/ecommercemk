@@ -30,7 +30,7 @@
                     <section class="card-header">
                         <div class="row">
                             <h4 class="card-title my-auto ml-3">All Businesses</h4>
-                            <a href="#" class="btn btn-danger ml-auto ">
+                            <a href="{{route('create.business')}}" class="btn btn-danger ml-auto ">
                                 <i class="fa fa-plus " aria-hidden="true" ></i>Add Business</a>
                         </div>
                     </section>

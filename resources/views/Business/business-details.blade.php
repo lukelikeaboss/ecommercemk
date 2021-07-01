@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mt-4">
             <div class="col-lg-6 col-md-6 col-sm-12 my-auto">
-               <img src="{{ asset('pics/12.jpg')}}" class="img-thumbnail card-img rounded mb-3 img-box rounded-circle"  alt="avatar">
+               <img src="{{ asset('storage/images/'.$business->avatar_url)}}" class="img-thumbnail card-img rounded mb-3 img-box rounded-circle"  alt="avatar">
                 <h3><strong>Seller:{{$business->name}}</strong></h3>
                 <a href="#" class="btn btn-success rounded"><i class="fa fa-phone"></i> Call</a>
                 <a href="#"  class="btn  btn-success  mx-2 "><i class="fa fa-edit"> </i>Edit</a>
@@ -14,8 +14,8 @@
                 <h4>Business Info</h4>
                 <hr>
 
-                <p><strong>Name:</strong> Kalimoni Enterprises</p>
-                <p><strong>Location:</strong> Thika SuperHighway, Exit 16, Juja MainRoad. Highway plaza</p>
+                <p><strong>Name:</strong> {{$business->name}}</p>
+                <p><strong>Location:</strong> </i> </p>
 
                 <div class="row ">
                     <a href="#"  class="btn  btn-outline-success  mx-2 "><i class="fa fa-comment mr-2"> </i>Chat</a>

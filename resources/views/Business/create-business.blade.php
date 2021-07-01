@@ -31,10 +31,13 @@
                             <div class="form-group">
                                 <label> Name:</label>
                                 <input type="text" name="name" class="form-control" placeholder="Your First  name">
+                            </div>  <div class="form-group">
+                                <label> Phone Number:</label>
+                                <input type="varchar" name="phone_number" class="form-control" placeholder="Mobile Phone no.">
                             </div>
                             <div class="form-group">
-                                <label><i>Last name:</label></i>
-                                <input type="name" name="surname" class="form-control" placeholder="Surname">
+                                <label>Email:</label>
+                                <input type="email" name="email" class="form-control" placeholder="Enter  email">
                             </div>
                             <div class="form-group">
                                 <label> Type of Business:</label>
@@ -42,31 +45,47 @@
                             </div>
 
                             <div>
-                                <label>Phone numberr:</label>
-                                <textarea  name="short-description" class="form-control" placeholder="Phone Number:">
+                                <label>Business description:</label>
+                                <textarea  name="short-description" class="form-control" placeholder="About your business:">
                             </textarea>
                             </div>
                             <div>
+                                <a href="https://www.google.com/maps/" ><label>Business location:</label></a>
+                                <input type="text" name="pin" class="form-control" placeholder="Location of your business:">
+                            </input>
+                            </div>
+                            <div>
                                 <label>Product:</label>
-                                <textarea type="text" name="description" class="form-control" placeholder="Goods of your trade:">
+                                <textarea type="text" name="description" class="form-control" placeholder="Product description:">
+                            </textarea>
+                            </div>
+                            <div>
+                                <label>Password:</label>
+                                <textarea input="password" type="password" name="password" class="form-control" placeholder="Password:">
+                            </textarea>
+                            </div>
+                            <div>
+                                <label>business number:</label>
+                                <textarea input="number" type="number" name="business_number" class="form-control" placeholder="Businness number:">
                             </textarea>
                             </div>
                             <div class="form-group">
                                 <input type="file"  name="image" class="form-control" placeholder="">
-                                <label> Product Image Sample:</label> <input type="text" name="code_url" class="form-control" placeholder="Product">
+                                <label> external link</label> <input type="text" name="external_url" class="form-control" placeholder="Product website">
+                                <label> avatar</label> <input type="file" name="avatar_url" class="form-control" placeholder="A picture of yourself">
                             </div>
 
-                            <div class="form-group">
-                                <label for="inputstate">Category</label>
-                                <select id="inputstate" name="platform" class="form-control">
-                                    <option selected>Choose a category:</option>
-                                    <option>Product A</option>
-                                    <option> Product B</option>
-                                    <option> Product C</option>
-                                    <option> Product D</option>
-                                </select>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="inputstate">Category</label>--}}
+{{--                                <select id="inputstate" name="platform" class="form-control">--}}
+{{--                                    <option selected>Choose a category:</option>--}}
+{{--                                    <option>Product A</option>--}}
+{{--                                    <option> Product B</option>--}}
+{{--                                    <option> Product C</option>--}}
+{{--                                    <option> Product D</option>--}}
+{{--                                </select>--}}
 
-                            </div>
+{{--                            </div>--}}
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">

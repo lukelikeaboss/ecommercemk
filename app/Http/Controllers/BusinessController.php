@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use App\Models\Category;
+use App\Models\location;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -48,11 +49,11 @@ class BusinessController extends Controller
             'name'=>'required',
             'product'=>'required',
             'quantity'=>'required',
-            'image_url'=>'required|mime:jpg,png,svg,jpeg',
+            'avatar_url'=>'required|mime:jpg,png,svg,jpeg',
             'business_id'=>'required'
         ];
-        if ($request->hasFile('image_url')){
-            $filename = ImageController::addFile($request->file('image_url'));
+        if ($request->hasFile('avatar_url')){
+            $filename = ImageController::addFile($request->file('avatar_url'));
 
             if ($filename == "Failed"){
                 return redirect()->back()->withInput();
@@ -62,14 +63,23 @@ class BusinessController extends Controller
         else{
             $filename = null;
         }
-        Business::create([
+        $business = Business::create([
             'name'=>$request->name,
             'product'=>$request->product,
-            'image_url'=>$request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'phone_number' => $request->phone_number,
             'business_id'=> 1,
+            'business_number'=> $request->business_number,
             'category_id' => 1,
-            'image_url' => $filename,
+            'status' => 'verified',
+            'avatar_url' => $filename,
+            'external_url' => $request->external_url,
             'quantity'=>$request->quantity,
+        ]);
+        Location::create([
+            'pin'=> $request->pin,
+            'business_id'=>$business->id,
         ]);
         return redirect()->route('business');
     }

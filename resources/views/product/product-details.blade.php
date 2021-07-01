@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-lg-8 col-md-6 col-sm-12 my-auto">
-            <h4 class="text-left align-content-center">{{$product->name}} details</h4>
+            <h4 class="text-left align-content-center">{{$product->business->name}} details</h4>
         </div>
 
         <div class="col-lg-4 col-md-6 col-sm-12 text-right">
@@ -26,8 +26,8 @@
             <h4>Seller Info</h4>
             <hr>
 
-            <p><strong>Name:</strong> JK Live</p>
-            <p><strong>Number:</strong> 071234567</p>
+            <p><strong>Name:</strong> {{$product->business->name}}</p>
+            <p><strong>Number:</strong> {{$product->business->phone_number}}</p>
 
             <div class="row ">
                 <a href="#"  class="btn  btn-outline-success  mx-2 "><i class="fa fa-comment mr-2"> </i>Chat</a>
@@ -75,7 +75,7 @@
             <p>{{$product->short_description}}</p>
 
             <hr>
-            <p>Category: {{$product->category_id}}</p>
+            <p>Category: {{$product->category->name}}</p>
 
 
         </div>
