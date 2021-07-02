@@ -9,4 +9,7 @@ class location extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    public function business(){
+        return $this->belongsTo('App\Models\Business');
+    }
 }

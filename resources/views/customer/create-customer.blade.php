@@ -47,13 +47,23 @@
                             </textarea>
                             </div>
                             <div>
-                                <label>Location:</label>
-                                <textarea type="text" name="description" class="form-control" placeholder="Where yo want your goods delivered:">
+                                <label>Password:</label>
+                                <textarea input="password" type="password" name="password" class="form-control" placeholder="Password:">
                             </textarea>
                             </div>
+                            <div>
+{{--                                <label>avatar:</label>--}}
+{{--                                <textarea  name="avatar_url" type="file" class="form-control" placeholder="Your Image:">--}}
+{{--                            </textarea>--}}
+{{--                            </div>--}}
+                                <div>
+                                    <a target="_blank" href="https://www.google.com/maps/" ><label><h5>Business location:</h5></label></a>
+                                    <input type="text" name="pin" class="form-control" placeholder="where can we find you:">
+                                    </input>
+                                </div>
                             <div class="form-group">
-                                <label> A profile picture:</label>  <input type="file"  name="image" class="form-control" placeholder="profile avatar">
-                               <input type="text" name="code_url" class="form-control" placeholder="customer_photo">
+                                <label> A profile picture:</label>  <input type="file"  name="avatar_url" class="form-control" placeholder="profile avatar">
+
                             </div>
 
                             <div class="form-group">

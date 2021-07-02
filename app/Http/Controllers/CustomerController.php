@@ -47,11 +47,11 @@ class CustomerController extends Controller
             'name'=>'required',
             'phone_number'=>'required',
             'location'=>'required',
-            'image_url'=>'required|mime:jpg,png,svg,jpeg',
+            'avatar_url'=>'required|mime:jpg,png,svg,jpeg',
             'customer_id'=>'required'
         ];
-        if ($request->hasFile('image_url')){
-            $filename = ImageController::addFile($request->file('image_url'));
+        if ($request->hasFile('avatar_url')){
+            $filename = ImageController::addFile($request->file('avatar_url'));
 
             if ($filename == "Failed"){
                 return redirect()->back()->withInput();
@@ -64,12 +64,15 @@ class CustomerController extends Controller
         Customer::create([
             'name'=>$request->name.$request->surname,
             'email'=>$request->email,
-            'phone_number'=>$request->phone_number,
+            'password'=>$request->password,
+            'phone_number'=>$request->number,
             'location'=>$request->location,
-            'image_url' => $filename,
+            'avatar_url' => $filename,
+            'status' => 'Active',
             'customer_id'=> 2,
             'payment_method'=>$request->payment_method,
         ]);
+
         return redirect()->route('customer');
     }
 
@@ -83,7 +86,7 @@ class CustomerController extends Controller
     {
         //
         $customer = Customer::findOrFail($id);
-        return view('customer.customer-details', compact('customer'));
+        return view('customer.customer_details', compact('customer'));
     }
 
     /**

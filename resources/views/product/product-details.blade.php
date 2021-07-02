@@ -31,7 +31,7 @@
 
             <div class="row ">
                 <a href="#"  class="btn  btn-outline-success  mx-2 "><i class="fa fa-comment mr-2"> </i>Chat</a>
-                <a href="#"  class="btn  btn-success mx-2"><i class="fa fa-phone mr-2"></i>Contact</a>
+                <a href="tel:{{$product->business->phone_number}}"  class="btn  btn-success mx-2"><i class="fa fa-phone mr-2"></i>Contact</a>
             </div>
 
         </div>

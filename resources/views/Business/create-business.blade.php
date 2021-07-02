@@ -50,7 +50,7 @@
                             </textarea>
                             </div>
                             <div>
-                                <a href="https://www.google.com/maps/" ><label>Business location:</label></a>
+                                <a target="_blank" href="https://www.google.com/maps/" ><label>Business location:</label></a>
                                 <input type="text" name="pin" class="form-control" placeholder="Location of your business:">
                             </input>
                             </div>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="file"  name="image" class="form-control" placeholder="">
-                                <label> external link</label> <input type="text" name="external_url" class="form-control" placeholder="Product website">
+                                <label> external link</label> <input type="text" name="avatar_url" class="form-control" placeholder="Product website">
                                 <label> avatar</label> <input type="file" name="avatar_url" class="form-control" placeholder="A picture of yourself">
                             </div>
 

@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mt-4">
             <div class="col-lg-6 col-md-6 col-sm-12 my-auto">
-                <img src="{{ asset('pics/avataaars.svg')}}" class="img-thumbnail card-img rounded mb-3 img-box rounded-circle"  alt="avatar">
+                <img src="{{ asset('storage/images/'.$customer->avatar_url)}}" class="img-thumbnail card-img rounded mb-3 img-box rounded-circle"  alt="avatar">
                 <h3><strong>Seller:{{$customer->name}}</strong></h3>
                 <a href="#" class="btn btn-success rounded"><i class="fa fa-user"></i>Profile </a>
             </div>
@@ -13,9 +13,9 @@
                 <h4>Customer Information</h4>
                 <hr>
 
-                <p><strong>Name:</strong> Mr Kamau</p>
-                <p><strong>Location:</strong> Thika SuperHighway, Exit 16, Juja MainRoad. Highway plaza<i class="fa fa-map-marker" aria-hidden="true"></i>
-                </p>
+                <p><strong>Name:</strong> {{$customer->name}}</p>
+                <p><strong>Location:    </strong><a class="btn btn-info" target="_blank" href="{{$customer->location()->first()->pin}}"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                        where to find me </a> </p>
 
                 <div class="row ">
                     <a href="#"  class="btn  btn-outline-success  mx-2 "><i class="fa fa-whatsapp mr-2"> </i>Chat</a>
