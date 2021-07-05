@@ -66,3 +66,5 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('store/category', [App\Http\Controllers\CategoryController::class, 'store'] )->name('store.category');
     Route::post('delete/category', [App\Http\Controllers\CategoryController::class, 'delete'] )->name('delete.category');
 });
+Route::get('/redirect', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider']);
+Route::get('/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);

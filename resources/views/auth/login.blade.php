@@ -1,13 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+
+    <div class="g-signin2 container-fluid" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+    <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
