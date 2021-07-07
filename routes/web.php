@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -68,3 +64,12 @@ Route::group(['middleware'=>'auth'], function(){
 });
 Route::get('/redirect', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider']);
 Route::get('/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback']);
+
+
+//Frontend routes
+
+Route::get( '/',[App\Http\Controllers\FrontEndController::class,'home'])->name('home');
+Route::get( '/FrontEnd',[App\Http\Controllers\FrontEndController::class,'products'])->name('product_list.frontend');
+Route::get('details/product/frontend/{id}', [App\Http\Controllers\FrontEndController::class,'productDetails'])->name('details.frontend');
+Route::post('checkout/frontend{id}', [App\Http\Controllers\FrontEndController::class,'store'])->name('checkout.frontend');
+
