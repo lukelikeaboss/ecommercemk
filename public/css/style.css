@@ -1,5 +1,5 @@
 .navbar-header{
-    background-color: rgba(76, 222, 79, 0.93);
+    background-color: teal;
 }
 /*.card{*/
 /*    margin-bottom: auto;*/
@@ -8,6 +8,7 @@
 /*}*/
 .footer{
     text-align: center;
+
     background-color: #882222;
     bottom: 0;
     position: fixed;

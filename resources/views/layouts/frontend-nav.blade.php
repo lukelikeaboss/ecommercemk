@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="main-navigation">
             <ul class="navbar-nav ml-auto navbar-dark ">
-                <li  class="nav-item"> <a class="nav-link" href="#">Home</a></li>
+                <li  class="nav-item"> <a class="nav-link" href="#">Homer</a></li>
                 <li  class="nav-item"> <a class="nav-link" href="#">About</a></li>
                 <li  class="nav-item"> <a class="nav-link" href="#">Contacts</a></li>
                 <li  class="nav-item"> <a class="nav-link" href="#">Shop</a></li>

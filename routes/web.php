@@ -21,6 +21,7 @@ Auth::routes(["verify"=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware'=>'auth'], function(){
+    Route::get('/frontend',[App\Http\Controllers\FrontEndController::class, 'show'])->name('product_details');
     Route::get('/products',[App\Http\Controllers\ProductController::class,'index'])->name('product');
     Route::get('/create/product', [\App\Http\Controllers\ProductController::class,'create'])->name('create.product');
     Route::post('/store/product', [\App\Http\Controllers\ProductController::class,'store'])->name('store.product');
@@ -60,6 +61,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('edit/category/{id}', [App\Http\Controllers\CategoryController::class, 'edit'] )->name('edit.category');
     Route::post('update/category/{id}', [App\Http\Controllers\CategoryController::class, 'update'] )->name('update.category');
     Route::post('store/category', [App\Http\Controllers\CategoryController::class, 'store'] )->name('store.category');
+    Route::get('details/category/{id}', [App\Http\Controllers\CategoryController::class, 'show'] )->name('details.category');
     Route::post('delete/category', [App\Http\Controllers\CategoryController::class, 'delete'] )->name('delete.category');
 });
 Route::get('/redirect', [App\Http\Controllers\Auth\LoginController::class, 'redirectToProvider']);
@@ -69,6 +71,7 @@ Route::get('/callback', [App\Http\Controllers\Auth\LoginController::class, 'hand
 //Frontend routes
 
 Route::get( '/',[App\Http\Controllers\FrontEndController::class,'home'])->name('home');
+Route::get( '/load/all',[App\Http\Controllers\FrontEndController::class,'home2'])->name('load_all_products');
 Route::get( '/FrontEnd',[App\Http\Controllers\FrontEndController::class,'products'])->name('product_list.frontend');
 Route::get('details/product/frontend/{id}', [App\Http\Controllers\FrontEndController::class,'productDetails'])->name('details.frontend');
 Route::post('checkout/frontend{id}', [App\Http\Controllers\FrontEndController::class,'store'])->name('checkout.frontend');

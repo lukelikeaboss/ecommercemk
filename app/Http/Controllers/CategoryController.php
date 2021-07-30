@@ -78,7 +78,10 @@ class CategoryController extends Controller
         return view('category.view-category', compact('category'));
         //
     }
-
+ public  function category(Request $request){
+        $category =Category::findOrFail($id);
+        return view('category.template-category', compact('category') );
+ }
     /**
      * Show the form for editing the specified resource.
      *
