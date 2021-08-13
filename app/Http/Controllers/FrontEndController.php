@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class FrontEndController extends Controller
 {
     //
 public function home(Request $request){
     $value = $request ->cookie("category");
+    $user_temporary_id = $request->cookie("user_cookie_id");
+    if ($user_temporary_id == null){
+
+        $random_id = $this->generateRandomString();
+        Cookie::queue('user_cookie_id', $random_id );
+    }
+
     if ($value){
         $category = Category::where('name',$value)->first();
         $products = Product::where("category_id",$category->id)->get();
@@ -45,8 +53,19 @@ public function productDetails($id){
 
     $product = Product::findOrFail($id);
 
-    return response(view('FrontEnd/product_list', compact('product')))
+    return response(view('FrontEnd.product_details', compact('product')))
         ->withCookie(cookie('category', $product->category->name, 10));
 }
+
+public function generateRandomString($length = 10)
+{
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 
 }

@@ -49,7 +49,7 @@ class Business extends Authenticatable
     public function product(){
         return $this->hasMany('App\Models\Product');
     }
-    public function location(){
+    public function locations(){
         return $this->hasMany('App\Models\Location');
     }
 }

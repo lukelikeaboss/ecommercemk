@@ -21,6 +21,7 @@ Auth::routes(["verify"=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware'=>'auth'], function(){
+
     Route::get('/frontend',[App\Http\Controllers\FrontEndController::class, 'show'])->name('product_details');
     Route::get('/products',[App\Http\Controllers\ProductController::class,'index'])->name('product');
     Route::get('/create/product', [\App\Http\Controllers\ProductController::class,'create'])->name('create.product');
@@ -75,4 +76,8 @@ Route::get( '/load/all',[App\Http\Controllers\FrontEndController::class,'home2']
 Route::get( '/FrontEnd',[App\Http\Controllers\FrontEndController::class,'products'])->name('product_list.frontend');
 Route::get('details/product/frontend/{id}', [App\Http\Controllers\FrontEndController::class,'productDetails'])->name('details.frontend');
 Route::post('checkout/frontend{id}', [App\Http\Controllers\FrontEndController::class,'store'])->name('checkout.frontend');
+Route::post('addToCart/frontend{id}', [App\Http\Controllers\CartController::class,'store'])->name('checkout.frontend');
+;
+Route::get('/Cart', [App\Http\controllers\CartController::class,'index'])->name('cart');
+Route::get('/addToCart', [App\Http\controllers\CartController::class,'addToCart'])->name('add.cart');
 

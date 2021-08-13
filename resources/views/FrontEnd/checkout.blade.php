@@ -18,13 +18,14 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($cart_products as $product)
                     <tr>
-                        <td class="image"><img src="{{asset(pics/picha.svg)}}" alt="#"></td>
+                        <td class="image"><img src="{{asset("pics/picha.svg")}}" alt="#"></td>
                         <td class="product-description" data-title="Description">
-                            <p class="product-name"><a href="#">product 1</a></p>
-                            <p class="product-description">Maboriosam in loony toons thee robin to guard down using huge size advantage magndapibus.</p>
+                            <p class="product-name"><a href="#">{{$product->name }}</a></p>
+                            <p class="product-description">{{$product->short_description}}</p>
                         </td>
-                        <td class="price" data-title="Price"><span>Kshs 110.00 </span></td>
+                        <td class="price" data-title="Price"><span>Kshs {{ $product->cost }}0 </span></td>
                         <td class="qty" data-title="Qty">
                             <!-- Input Order -->
                             <div class="input-group">
@@ -42,63 +43,10 @@
                             </div>
                             <!--/ End Input Order -->
                         </td>
-                        <td class="total-amount" data-title="Total"><span>Kshs. 220.88</span></td>
+                        <td class="total-amount" id="total_{{$product->id}}" data-title="Total"><span>Kshs. {{ $product->cost }}</span></td>
                         <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
                     </tr>
-                    <tr>
-                        <td class="image" data-title="No"><img src="{{asset(#)}}" alt="#"></td>
-                        <td class="product-description" data-title="Description">
-                            <p class="product-name"><a href="#">Product 2</a></p>
-                            <p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
-                        </td>
-                        <td class="price" data-title="Price"><span>Kshs 110.00 </span></td>
-                        <td class="qty" data-title="Qty">
-                            <!-- Input Order -->
-                            <div class="input-group">
-                                <div class="button minus">
-                                    <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                        <i class="ti-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" name="quantity[2]" class="input-number"  data-min="1" data-max="100" value="2">
-                                <div class="button plus">
-                                    <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quantity[3]">
-                                        <i class="ti-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!--/ End Input Order -->
-                        </td>
-                        <td class="total-amount" data-title="Total"><span>Kshs 220.00 </span></td>
-                        <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td class="image" data-title="No"><img src="#" alt="#"></td>
-                        <td class="product-description" data-title="Description">
-                            <p class="product-name"><a href="#">Women Dress</a></p>
-                            <p class="product-description">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
-                        </td>
-                        <td class="price" data-title="Price"><span>Kshs 110.00 </span></td>
-                        <td class="qty" data-title="Qty">
-                            <!-- Input Order -->
-                            <div class="input-group">
-                                <div class="button minus">
-                                    <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
-                                        <i class="ti-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" name="quantity[3]" class="input-number"  data-min="1" data-max="100" value="3">
-                                <div class="button plus">
-                                    <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quantity[3]">
-                                        <i class="ti-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!--/ End Input Order -->
-                        </td>
-                        <td class="total-amount" data-title="Total"><span>Kshs 220.00</span></td>
-                        <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
-                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 <!--End Shopping Summery -->
@@ -125,10 +73,10 @@
                         <div class="col-lg-4 col-md-7 col-12">
                             <div class="right">
                                 <ul>
-                                    <li>Cart Subtotal<span></span></li>
+                                    <li>Cart Subtotal<span>{{$total}}</span></li>
                                     <li>Transport<span>Free</span></li>
                                     <li>You Save<span>Kshs 20.00</span></li>
-                                    <li class="last">You Pay<span>$310.00</span></li>
+                                    <li class="last">You Pay<span id="grand_total">$310.00</span></li>
                                 </ul>
                                 <div class="button5">
                                     <a href="#" class="btn">Checkout</a>

@@ -4,11 +4,9 @@
         <div class="card-body">
             <h5>{{$product->name}}</h5>
             <p class="card-text">Kshs {{$product->cost}}</p>
-        @foreach($product as $product)
+
             <a href="{{route('details.frontend', $product->id)}}" class="btn btn-primary">View Details</a>
-            @include('$frontend.product')
             <a href="{{route('details.frontend', $product->id)}}" class="btn btn-primary">Buy Now</a>
-            @endforeach
         </div>
     </div>
 </a>
