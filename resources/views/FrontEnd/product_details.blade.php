@@ -16,7 +16,7 @@
                 <p>{{$product->amount}}</p>
                 <hr>
                 <button class="btn btn-success">buy now</button>
-                <button type="button" onclick="addToCart({{$product->id}})" class="btn btn-info">Add to cart</button>
+                <button type="button" id="addCart" data-id="{{$product->id}}" class="btn btn-info">Add to cart</button>
             </div>
             <div class="col">
                 <div class="card">
@@ -93,16 +93,20 @@
             return false; //for good measure
         });
 
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-            }
+
+        $(document).ready(function(){
+
+            $.ajaxSetup({
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
         });
 
-
-        function addToCart(product_id){
+        $("#addCart").click(function (){
 
             let quantity = 1;
+            product_id = this.id
 
             /**
              * TODO: Add success and error notifications to user
@@ -111,7 +115,7 @@
             $.ajax({
                 type: "POST",
 
-                url:{{route('add.cart')}},
+                url:"{{route('add.cart')}}",
                 data:{
                     'quantity': quantity,
                     'product_id':product_id,
@@ -128,6 +132,12 @@
                     console.log(data)
                 }
             })
+        });
+
+
+        function addToCart(product_id){
+
+
 
         }
     </script>
