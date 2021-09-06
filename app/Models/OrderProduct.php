@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class OrderProduct extends Model
 {
     use HasFactory;
+
+//    To allow mass assignment
+protected $guarded = ['id'];
+
 }
+

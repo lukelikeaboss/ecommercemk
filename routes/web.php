@@ -78,6 +78,10 @@ Route::get('details/product/frontend/{id}', [App\Http\Controllers\FrontEndContro
 Route::post('checkout/frontend{id}', [App\Http\Controllers\FrontEndController::class,'store'])->name('checkout.frontend');
 Route::post('addToCart/frontend{id}', [App\Http\Controllers\CartController::class,'store'])->name('checkout.frontend');
 ;
+Route::get('/explore', [App\Http\controllers\FrontEndController::class,'explore'])->name('explore');
 Route::get('/Cart', [App\Http\controllers\CartController::class,'index'])->name('cart');
-Route::get('/addToCart', [App\Http\controllers\CartController::class,'addToCart'])->name('add.cart');
+Route::post('/addToCart', [App\Http\controllers\CartController::class,'addToCart'])->name('add.cart');
 
+
+
+//TODO: Add routes to the functions in UserAuthController

@@ -106,15 +106,16 @@
         $("#addCart").click(function (){
 
             let quantity = 1;
-            product_id = this.id
+            var product_id = this.dataset.id
 
             /**
              * TODO: Add success and error notifications to user
              */
 
+            console.log(product_id + "id is here")
+
             $.ajax({
                 type: "POST",
-
                 url:"{{route('add.cart')}}",
                 data:{
                     'quantity': quantity,
@@ -123,6 +124,8 @@
                 success: function(data){
 
                     // Here show user success e.g sweet alert or something
+
+                    alert("Product added to cart.")
 
                     console.log();
                 },
@@ -135,11 +138,6 @@
         });
 
 
-        function addToCart(product_id){
-
-
-
-        }
     </script>
 
 @endsection

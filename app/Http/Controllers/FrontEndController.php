@@ -27,9 +27,9 @@ public function home(Request $request){
         $products = Product::all();
         $value = "no cookie";
     }
-    $category = Category::all();
+    $categories = Category::all()->take(4);
    $products = Product::all();
-    return view('welcome', compact('category', 'products', 'value'));
+    return view('welcome', compact('categories', 'products', 'value'));
 
 }
     public function show(Request $request){
@@ -55,6 +55,12 @@ public function productDetails($id){
 
     return response(view('FrontEnd.product_details', compact('product')))
         ->withCookie(cookie('category', $product->category->name, 10));
+}
+
+public function explore(){
+    $products = Product::all();
+
+    return view('frontend.explore', compact('products'));
 }
 
 public function generateRandomString($length = 10)

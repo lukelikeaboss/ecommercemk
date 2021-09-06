@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\OrderProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -36,9 +37,11 @@ class CartController extends Controller
 
         $request->validate($rules);
 
+        $product =Product::findOrFail($request->product_id);
+
 
         OrderProduct::create([
-            'products_id' => $request->product_id,
+            'product_id' => $product->id,
             'quantity' => $request->quantity,
             'user_cookie_id' => $user_temporary_id,
         ]);

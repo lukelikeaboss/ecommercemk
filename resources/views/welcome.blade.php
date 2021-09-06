@@ -1,90 +1,72 @@
 @extends('layouts.frontend-master')
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2><strong>Trending <b>Products</b>{{$value}}  </strong></h2>
-                <a href="{{route('load_all_products')}}" class="btn btn-primary">Show All</a>
-                /*<!! here starts the carousel -->*/
-                <div class="">
-                    <h1>Products</h1>
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-3">
 
-                    <p class="font-weight-bold">This are product samples.</p>
+            <div class="col-lg-6 my-auto">
 
-                    <section class="carousel" aria-label="Gallery">
-                        <ol class="carousel__viewport">
-                            <li id="carousel__slide2"
-                                tabindex="0"
-                                class="carousel__slide">
-                                <div class="carousel__snapper"></div>
-                                <a href="#carousel__slide1"
-                                   class="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide3"
-                                   class="carousel__next">Go to next slide</a>
-                            </li>
-                            <li id="carousel__slide3"
-                                tabindex="0"
-                                class="carousel__slide">
-                                <div class="carousel__snapper"></div>
-                                <a href="#carousel__slide2"
-                                   class="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide4"
-                                   class="carousel__next">Go to next slide</a>
-                            </li>
-                            <li id="carousel__slide4"
-                                tabindex="0"
-                                class="carousel__slide">
-                                <div class="carousel__snapper"></div>
-                                <a href="#carousel__slide3"
-                                   class="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide1"
-                                   class="carousel__next">Go to first slide</a>
-                            </li>
-                        </ol>
-                        <aside class="carousel__navigation">
-                            <ol class="carousel__navigation-list">
-                                <li class="carousel__navigation-item">
-                                    <a href="#carousel__slide1"
-                                       class="carousel__navigation-button">Go to slide 1</a>
-                                </li>
-                                <li class="carousel__navigation-item">
-                                    <a href="#carousel__slide2"
-                                       class="carousel__navigation-button">Go to slide 2</a>
-                                </li>
-                                <li class="carousel__navigation-item">
-                                    <a href="#carousel__slide3"
-                                       class="carousel__navigation-button">Go to slide 3</a>
-                                </li>
-                                <li class="carousel__navigation-item">
-                                    <a href="#carousel__slide4"
-                                       class="carousel__navigation-button">Go to slide 4</a>
-                                </li>
-                            </ol>
-                        </aside>
-                    </section>
+                <small class="text-teal font-weight-bold">One stop shop, for all your shopping needs!</small>
+                <h1 class="font-weight-bold">
+                        We have the best quality products on the market at the best prices!
+                    </h1>
+
+                <a href="#featured" class="btn btn-warning btn-lg mt-3">Featured Products</a>
+            </div>
+            <div class="col-lg-5">
+
+
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+
+                        @foreach($products as $product)
+                            <div class="carousel-item @if($loop->first) active @endif">
+                                <img class="d-block w-100 rounded carousel-image" src="{{ asset('storage/images/'.$product->image_url)}}" alt="First slide">
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+
+
+
             </div>
 
-        <div class="row">
-
-            @include('layouts.category-template')
         </div>
+
     </div>
 
     <div class="container">
 
-        <div class="row justify-content-center">
+        <h2 class="text-center"><strong>Our <b>Categories</b> </strong></h2>
+        <div class="row mb-5 pb-5">
+            @foreach($categories as $category)
+                @include('layouts.category-template')
 
-                @foreach($products as $product)
-                <div class="col-3 h-100">
+            @endforeach
+        </div>
 
-                @include('layouts.single_product')
+        <h2 class="text-center mt-5"><strong>Trending <b>Products</b> </strong></h2>
+
+        <div class="row" id="featured">
+
+            @foreach($products as $product)
+                <div class="col-lg-3 col-md-6 col-sm-12 h-100 mt-2">
+
+                    @include('layouts.single_product')
                 </div>
-                @endforeach
+            @endforeach
 
         </div>
+
     </div>
-    </div>
+
 
 @endsection
