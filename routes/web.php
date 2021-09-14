@@ -83,13 +83,14 @@ Route::post('addToCart/frontend{id}', [App\Http\Controllers\CartController::clas
 Route::get('/explore', [App\Http\controllers\FrontEndController::class,'explore'])->name('explore');
 Route::get('/Cart', [App\Http\controllers\CartController::class,'index'])->name('cart');
 Route::post('/addToCart', [App\Http\controllers\CartController::class,'addToCart'])->name('add.cart');
+Route::post('/removeCart', [App\Http\controllers\CartController::class,'removeCart'])->name('remove.cart');
 Route::any('/search',function(\Illuminate\Support\Facades\Request $request){
     $q = $request->q;
     $product = Product::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
     if(count($product) > 0)
         return view('welcome')->withDetails($product)->withQuery ( $q );
     else return view ('welcome')->withMessage('No Details found. Try to search again !');
-});
+})->name('search');
 
 
 

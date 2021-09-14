@@ -10,7 +10,16 @@ class OrderProduct extends Model
     use HasFactory;
 
 //    To allow mass assignment
-protected $guarded = ['id'];
+    protected $guarded = ['id'];
+
+
+    public function product(){
+        return $this->belongsTo('App\Models\Product');
+    }
+
+    public function order(){
+        return $this->belongsTo('App\Models\Order');
+    }
 
 }
 

@@ -1,6 +1,6 @@
 
     <nav class="navbar navbar-header navbar-expand-lg navbar-dark bg-red">
-        <a class="navbar-brand" href="#">Martin's Market (MM)</a>
+        <a class="navbar-brand" href="/">Martin's Market (MM)</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,7 +16,12 @@
                     <a class="nav-link" href="#">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-warning" href="{{route('explore')}}">Shop</a>
+                    <a class="btn btn-outline-warning" href="{{route('explore')}}">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning ml-lg-2 ml-0" href="{{route('cart')}}">
+                        <i class="fa fa-shopping-cart "></i> Cart
+                    </a>
                 </li>
             </ul>
         </div>

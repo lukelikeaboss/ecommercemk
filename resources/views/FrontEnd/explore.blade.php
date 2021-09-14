@@ -40,20 +40,22 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $('#country').on('keyup',function() {
+            $('#country').on('keyup', function () {
                 var query = $(this).val();
                 $.ajax({
 
-                    url:"{{ route('any') }}",
+                    url: "{{ route('search') }}",
 
-                    type:"GET",
+                    type: "GET",
 
-                    data:{'products':query},
+                    data: {'products': query},
 
-                    success:function (data) {
+                    success: function (data) {
 
                         $('#products').html(data);
                     }
-                })</script>
-        // end of ajax call
+                });
+            });
+        });
+    </script>
 @endsection
