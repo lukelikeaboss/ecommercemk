@@ -23,10 +23,10 @@
                     <div class="card-header"><strong>seller info</strong></div>
                     <hr>
                     <p>{{$product->business->phone_number}}</p>
-                    <p> @if ($product->business->locations->count() == 0 )
+                    <p> @if ($product->business->location()->count() == 0 )
                         No location added
                         @else
-                        {{$product->business->locations->first()->pin}}
+                        {{$product->business->location()->first()->pin}}
                         @endif
                     </p>
                 </div>

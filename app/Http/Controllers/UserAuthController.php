@@ -7,32 +7,32 @@ use Illuminate\Http\Request;
 class UserAuthController extends Controller
 {
     //TODO: Add 4 functions
-    public function loginForm(Request $request){
+    public function loginForm{
+
+    };
+    public function registrationForm{
+
+
+
+    }
+    public function login (Request $request){
         $request->validate([
             'email'=>'required',
             'password'=>'required',
-            ]);
+        ]);
 
         return view( 'user.auth.login');
-    }
-    public function registrationForm(Request $request){
 
-            $request->validate([
-                'email'=>'required',
-                'name'=>'required',
-                'phone_number'=>'required',
-                'password'=>'required',
-            ]);
+    }
+    public function Register (Request $request){
+
+        $request->validate([
+            'email'=>'required',
+            'name'=>'required',
+            'phone_number'=>'required',
+            'password'=>'required',
+        ]);
         return view('user.auth.register');
-
-
-    }
-    public function login{
-
-
-    }
-    public function register{
-
 
     }
     //1: function loginForm

@@ -37,28 +37,6 @@
 
         <hr>
 
-{{--        <div class="row my-5">--}}
-{{--            <div class="col-lg-6 col-md-6 col-sm-12">--}}
-{{--                <div class="img-box img-fluid">--}}
-{{--                    <img src="{{ asset('pics/wallpaperbetter(1).jpg')}}" class="img-fluid" alt="">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-6 col-md-6 col-sm-12 p-5  rounded shadow">--}}
-
-{{--                <h4>Seller Info</h4>--}}
-{{--                <hr>--}}
-
-{{--                <p><strong>Name:</strong> JK Live</p>--}}
-{{--                <p><strong>Number:</strong> 071234567</p>--}}
-
-{{--                <div class="row ">--}}
-{{--                    <a href="#"  class="btn  btn-outline-success  mx-2 "><i class="fa fa-comment mr-2"> </i>Chat</a>--}}
-{{--                    <a href="#"  class="btn  btn-success mx-2"><i class="fa fa-phone mr-2"></i>Contact</a>--}}
-{{--                </div>--}}
-
-{{--            </div>--}}
-{{--        </div>--}}
 
         <div class="row mb-5">
 
@@ -71,7 +49,7 @@
                 <p><a target="_blank" href="mailto:{{$business->email}}">Email us</a></p>
 
                 <hr>
-                <p>   <i class="fa fa-map-marker mr-2"></i>  Find us <a target="_blank" href="{{$business->location()->first()->pin}}">Here</a> </p>
+                <p>   <i class="fa fa-map-marker mr-2"></i>  Find us <a target="_blank" href="@if($business->location()->count() !=0 ){{$business->location()->first()->pin}}@else #@endif">Here</a> </p>
 
 
             </div>
